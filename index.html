@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Discover useful, giftable and distinctive products from TING."/>
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <title>Home | TING</title>
+
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <script type="module" src="./src/js/pages/home.js"></script>
+  </head>
+
+<body data-page="home">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header id="site-header" class="site-header"></header>
+
+<main id="main-content">
+    <h1 class="visually-hidden">Products from TING</h1>
+
+    <section class="featured-products" aria-labelledby="featured-heading">
+        <h2 id="featured-heading" class="visually-hidden">Featured products</h2>
+
+        <div id="product-carousel" class="carousel" aria-label="Featured products">
+            <div id="carousel-content" class="carousel__content" aria-live="polite">
+                <p class="loading-message">Loading featured products...</p>
+            </div>
+
+            <div class="carousel__navigation">
+                <button id="carousel-previous" class="carousel__button" type="button" aria-label="show previous featured product" disabled>
+                    <img src="./assets/icons/24px/chevron-left.png" alt="" width="24" height="24"/>
+                </button>
+
+                <div id="carousel-indicators" class="carousel__indicators" aria-label="Featured product position"></div>
+
+                <button id="carousel-next" class="carousel__button" type="button" aria-label="Show next featured product" disabled>
+                    <img src="./assets/icons/24px/chevron-right.png" alt="" width="24" height="24"/>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+  </body>
