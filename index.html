@@ -12,37 +12,55 @@
     <script type="module" src="./src/js/pages/home.js"></script>
   </head>
 
-<body data-page="home">
-<a class="skip-link" href="#main-content">Skip to main content</a>
+    <body data-page="home">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<header id="site-header" class="site-header"></header>
+    <header id="site-header" class="site-header"></header>
 
-<main id="main-content">
-    <h1 class="visually-hidden">Products from TING</h1>
+        <main id="main-content">
+            <h1 class="visually-hidden">Products from TING</h1>
 
-    <section class="featured-products" aria-labelledby="featured-heading">
-        <h2 id="featured-heading" class="visually-hidden">Featured products</h2>
+            <section class="featured-products" aria-labelledby="featured-heading">
+                <h2 id="featured-heading" class="visually-hidden">Featured products</h2>
 
-        <div id="product-carousel" class="carousel" aria-label="Featured products">
-            <div id="carousel-content" class="carousel__content" aria-live="polite">
-                <p class="loading-message">Loading featured products...</p>
-            </div>
+                <div id="product-carousel" class="carousel" aria-label="Featured products">
+                    <div id="carousel-content" class="carousel__content" aria-live="polite">
+                        <p class="loading-message">Loading featured products...</p>
+                    </div>
 
-            <div class="carousel__navigation">
-                <button id="carousel-previous" class="carousel__button" type="button" aria-label="show previous featured product" disabled>
-                    <img src="./assets/icons/24px/chevron-left.png" alt="" width="24" height="24"/>
-                </button>
+                    <div class="carousel__navigation">
+                        <button id="carousel-previous" class="carousel__button" type="button" aria-label="Show previous featured product" disabled>
+                            <img src="./assets/icons/24px/chevron-left.png" alt="" width="24" height="24"/>
+                        </button>
 
-                <div id="carousel-indicators" class="carousel__indicators" aria-label="Featured product position"></div>
+                        <div id="carousel-indicators" class="carousel__indicators" aria-label="Featured product position"></div>
 
-                <button id="carousel-next" class="carousel__button" type="button" aria-label="Show next featured product" disabled>
-                    <img src="./assets/icons/24px/chevron-right.png" alt="" width="24" height="24"/>
-                </button>
-            </div>
-        </div>
-    </section>
+                        <button id="carousel-next" class="carousel__button" type="button" aria-label="Show next featured product" disabled>
+                            <img src="./assets/icons/24px/chevron-right.png" alt="" width="24" height="24"/>
+                        </button>
+                    </div>
+                </div>
+            </section>
 
+            <section class="product-section" aria-labelledby="product-heading">
+                <div class="product-section__header">
+                    <h2 id="product-heading">Great finds</h2>
+                    <p id="product-count" class="product-count"></p>
+                </div>
 
-</main>
+                <p id="products-status" class="status-message" role="status">Loading products...</p>
 
-  </body>
+                <div id="products-error" class="error-message" role="alert" hidden>
+                    <p>We could not load the products. Please try again.</p>
+                    <button id="retry-products" type="button">Try again</button>
+                </div>
+
+                <p id="products-empty" class="empty-message" hidden>No products are currently available</p>
+
+                <ul id="product-list" class="product-grid" aria-label="Available products"></ul>
+            </section>
+        </main>
+
+        <footer id="site-footer" class="site-footer"></footer>
+    </body>
+</html>
