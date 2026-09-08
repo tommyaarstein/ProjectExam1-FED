@@ -182,6 +182,54 @@ button:focus-visible {
     text-decoration: underline;
 }
 
+.site-footer {
+    padding: 10px 16px 6px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.site-footer__inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.site-footer__logo {
+    font-family: var(--font-logo);
+    font-size: 20px;
+}
+
+.site-footer__tagline {
+    margin: 0;
+    font-size: 12px;
+}
+
+.site-footer__navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.site-footer__navigation a {
+    min-height: 18px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.site-footer__navigation a:hover {
+    text-decoration: underline;
+}
+
+.site-footer__copyright {
+    grid-column: 1 / -1;
+    margin: 2px 0 0;
+    font-size: 10px;
+    text-align: center;
+}
+
 @media (min-width: 768px) {
     .site-header {
         min-height: 80px;
