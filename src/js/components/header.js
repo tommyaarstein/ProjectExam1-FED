@@ -7,7 +7,7 @@ export function renderHeader(pathPrefix = "./") {
 
     const currentPage = document.body.dataset.page;
 
-    const  homeActive = currentPage === "home"
+    const homeActive = currentPage === "home"
         ? 'aria-current="page"'
         : "";
 
@@ -45,7 +45,7 @@ export function renderHeader(pathPrefix = "./") {
     const mobileNavigation = header.querySelector("#mobile-navigation");
 
     menuButton.addEventListener("click", function () {
-        const menuIsOpen  = menuButton.getAttribute("aria-expanded") === "true";
+        const menuIsOpen = menuButton.getAttribute("aria-expanded") === "true";
 
         menuButton.setAttribute("aria-expanded", String(!menuIsOpen));
         menuButton.setAttribute("aria-label", menuIsOpen ? "Open menu" : "Close menu");
