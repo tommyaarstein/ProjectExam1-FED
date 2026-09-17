@@ -29,7 +29,7 @@ function createProductCard(product) {
   listItem.className = "product-card";
 
   const link = document.createElement("a");
-  link.href = `./pages/product.html?id=${encodeURIComponent(product.id)}`;
+  link.href = `./product/index.html?id=${encodeURIComponent(product.id)}`;
 
   const image = document.createElement("img");
   image.src = product.image.url;
@@ -128,7 +128,7 @@ function showFeaturedProduct() {
 
   const link = document.createElement("a");
   link.className = "featured-card__link";
-  link.href = `./pages/product.html?id=${encodeURIComponent(product.id)}`;
+  link.href = `./product/index.html?id=${encodeURIComponent(product.id)}`;
   link.textContent = "View product";
 
   const image = document.createElement("img");

@@ -127,41 +127,44 @@ function renderProduct(product) {
     const numberOfReviews = reviews.length;
     const reviewText = numberOfReviews === 1 ? "review" : "reviews";
 
-    productDetails.innerHTML = productDetails.innerHTML = `
-      <a class="product-page__back-link" href="../index.html">← Back to shop</a>
+    productDetails.innerHTML = `
+      <div class="product-page__toolbar">
+        <a class="product-page__back-link" href="../index.html"><img src="../assets/icons/24px/arrow-right.png" alt="" width="24" height="24">Back to shop</a>
+        <span id="product-discount" class="product-page__discount"></span>
+      </div>
 
       <div class="product-page__content">
         <div class="product-page__image-wrapper">
           <img id="product-image" class="product-page__image" src="" alt="">
-          <span id="product-discount" class="product-page__discount"></span>
         </div>
 
-        <div class="product-page__information">
-          <ul id="product-tags" class="product-page__tags" aria-label="Product tags"></ul>
+        <ul id="product-tags" class="product-page__tags" aria-label="Product tags"></ul>
 
-          <div class="product-page__title-row">
-            <h1 id="product-title"></h1>
+        <div class="product-page__title-row">
+          <h1 id="product-title"></h1>
 
-            <button class="product-page__share-button" type="button" aria-label="Share product">
-              <img src="../assets/icons/24px/share.png" alt="" width="24" height="24">
-            </button>
-          </div>
+          <button class="product-page__share-button" type="button" aria-label="Share product">
+            <img src="../assets/icons/24px/share.png" alt="" width="24" height="24">
+          </button>
+        </div>
 
-          <div class="product-page__rating">
-            <span id="product-rating-stars" class="product-page__stars"></span>
-            <span id="product-rating-text"></span>
-          </div>
+        <div class="product-page__rating">
+          <span id="product-rating-stars" class="product-page__stars"></span>
+          <span id="product-rating-text"></span>
+        </div>
 
+        <div class="product-page__description-block">
+          <h2 class="product-page__description-heading">Description</h2>
           <p id="product-description" class="product-page__description"></p>
+        </div>
 
-          <div class="product-page__purchase">
-            <div class="product-page__prices">
-              <span id="product-current-price" class="product-page__current-price"></span>
-              <del id="product-original-price" class="product-page__original-price"></del>
-            </div>
-
-            <a class="button product-page__purchase-button" href="./login.html">Log in to purchase</a>
+        <div class="product-page__purchase">
+          <div class="product-page__prices">
+            <span id="product-current-price" class="product-page__current-price"></span>
+            <del id="product-original-price" class="product-page__original-price"></del>
           </div>
+
+          <a class="button product-page__purchase-button" href="../account/login.html">Log in to purchase</a>
         </div>
       </div>
 

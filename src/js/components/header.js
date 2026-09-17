@@ -25,11 +25,11 @@ export function renderHeader(pathPrefix = "./") {
         </nav>
 
         <div class="site-header__actions">
-            <a class="site-header__icon-link" href="${pathPrefix}pages/login.html" aria-label="Account">
+            <a class="site-header__icon-link" href="${pathPrefix}account/login.html" aria-label="Account">
             <img src="${pathPrefix}assets/icons/24px/account.png" alt="" width="24" height="24">
             </a>
 
-            <a class="site-header__icon-link" href="${pathPrefix}pages/cart.html" aria-label="Shopping cart">
+            <a class="site-header__icon-link" href="${pathPrefix}cart/index.html" aria-label="Shopping cart">
             <img src="${pathPrefix}assets/icons/24px/shopping-bag.png" alt="" width="24" height="24">
             </a>
         </div>
