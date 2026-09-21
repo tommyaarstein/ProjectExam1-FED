@@ -584,6 +584,21 @@ button:focus-visible {
     height: 25px;
 }
 
+.product-page__share {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    flex-shrink: 0;
+}
+
+.product-page__share-feedback {
+    max-width: 160px;
+    margin: 4px 0 0;
+    color: var(--color-soft-line);
+    font-size: 12px;
+    text-align: right;
+}
+
 .product-page__rating {
     grid-area: rating;
     margin-bottom: 13px;

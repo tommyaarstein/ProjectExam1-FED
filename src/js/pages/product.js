@@ -47,6 +47,36 @@ function showError(message) {
     productDetails.hidden = true;
 }
 
+async function shareProduct(product, feedback) {
+  const shareInformation = {
+    title: product.title,
+    text: product.description,
+    url: window.location.href,
+  };
+
+  feedback.hidden = true;
+
+  try {
+    if (navigator.share) {
+      await navigator.share(shareInformation);
+      feedback.textContent = "Product shared.";
+    } else {
+      await navigator.clipboard.writeText(window.location.href);
+      feedback.textContent = "Product link copied.";
+    }
+
+    feedback.hidden = false;
+  } catch (error) {
+    if (error.name === "AbortError") {
+      return;
+    }
+
+    console.error(error);
+    feedback.textContent = "The product link could not be shared.";
+    feedback.hidden = false;
+  }
+}
+
 function renderReviews(reviews) {
     const reviewsList = document.querySelector("#reviews-list");
     const reviewsCount = document.querySelector("#reviews-count")
@@ -142,10 +172,12 @@ function renderProduct(product) {
 
         <div class="product-page__title-row">
           <h1 id="product-title"></h1>
-
-          <button class="product-page__share-button" type="button" aria-label="Share product">
-            <img src="../assets/icons/24px/share.png" alt="" width="24" height="24">
-          </button>
+          <div class="product-page__share">
+            <button class="product-page__share-button" type="button" aria-label="Share product">
+              <img src="../assets/icons/24px/share.png" alt="" width="24" height="24">
+            </button>
+            <p id="share-feedback" class="product-page__share-feedback" aria-live="polite" hidden></p>
+          </div>
         </div>
 
         <div class="product-page__rating">
@@ -189,6 +221,9 @@ function renderProduct(product) {
   const productCurrentPrice = document.querySelector("#product-current-price");
   const productOriginalPrice = document.querySelector("#product-original-price");
 
+  const shareButton = document.querySelector(".product-page__share-button");
+  const shareFeedback = document.querySelector("#share-feedback");
+
   productImage.src = product.image.url;
   productImage.alt = product.image.alt || product.title;
 
@@ -209,6 +244,10 @@ function renderProduct(product) {
     productOriginalPrice.hidden = true;
     productDiscount.hidden = true;
   }
+
+  shareButton.addEventListener("click", function () {
+    shareProduct(product, shareFeedback);
+  });
 
   document.title = `${product.title} | TING`;
 
