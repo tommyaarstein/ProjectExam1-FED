@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Create a TING account to purchase products."/>
+    <meta name="referrer" content="strict-origin-when-cross-origin"/>
+
+    <title>Create account | TING</title>
+
+    <link rel="stylesheet" href="../src/css/styles.css"/>
+
+    <script type="module" src="../src/js/pages/register.js"></script>
+  </head>
+
+  <body data-page="register">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header id="site-header" class="site-header"></header>
+
+    <main id="main-content" class="auth-page">
+      <a class="auth-page__back-link" href="../index.html"><img src="../assets/icons/24px/arrow-right.png" alt="" width="24" height="24">Back to shop</a>
+
+      <section class="auth-page__content" aria-labelledby="register-heading">
+        <h1 id="register-heading">Create account</h1>
+        <p class="auth-page__introduction">Register to add products to your cart and continue shopping</p>
+
+        <nav class="auth-tabs" aria-label="Account options">
+          <a href="./login.html">Log in</a>
+          <a href="./register.html" aria-current="page">Register</a>
+        </nav>
+
+        <form id="register-form" class="auth-form" method="post">
+          <div class="auth-form__field">
+            <label for="register-name">Name</label>
+            <input id="register-name" name="name" type="text" placeholder="Choose a username" autocomplete="username" pattern="[A-Za-z0-9_]+" title="Use letters, numbers or underscores only" required>
+          </div>
+
+          <div class="auth-form__field">
+            <label for="register-email">Email</label>
+            <input id="register-email" name="email" type="email" placeholder="name@stud.noroff.no" autocomplete="email" pattern="[A-Za-z0-9._%+-]+@stud\.noroff\.no" aria-describedby="register-email-help" required>
+            <small id="register-email-help">Use your Noroff email</small>
+          </div>
+
+          <div class="auth-form__field">
+            <label for="register-password">Password</label>
+            <div class="auth-form__password-wrapper">
+              <input id="register-password" name="password" type="password" placeholder="Enter password" autocomplete="new-password" minlength="8" aria-describedby="register-password-help" required>
+              <button class="auth-form__password-toggle" type="button" data-password-toggle="register-password" data-show-icon="../assets/icons/24px/eye.png" data-hide-icon="../assets/icons/24px/eye-off.png" aria-label="Show password" aria-controls="register-password" aria-pressed="false">
+                <img src="../assets/icons/24px/eye.png" alt="" width="24" height="24">
+              </button>
+            </div>
+            <small id="register-password-help">Minimum 8 characters</small>
+          </div>
+
+          <div class="auth-form__field">
+            <label for="register-confirm-password">Re-type password</label>
+            <div class="auth-form__password-wrapper">
+              <input id="register-confirm-password" name="confirmPassword" type="password" placeholder="Enter password" autocomplete="new-password" minlength="8" aria-describedby="register-confirm-password-help" required>
+              <button class="auth-form__password-toggle" type="button" data-password-toggle="register-confirm-password" data-show-icon="../assets/icons/24px/eye.png" data-hide-icon="../assets/icons/24px/eye-off.png" aria-label="Show password" aria-controls="register-confirm-password" aria-pressed="false">
+                <img src="../assets/icons/24px/eye.png" alt="" width="24" height="24">
+              </button>
+            </div>
+            <small id="register-confirm-password-help">Minimum 8 characters</small>
+          </div>
+
+          <button class="button auth-form__submit" type="submit">Create account</button>
+
+          <p id="register-status" class="auth-form__status" aria-live="polite" aria-atomic="true" hidden></p>
+        </form>
+      </section>
+    </main>
+
+    <footer id="site-footer" class="site-footer"></footer>
+  </body>
+</html>

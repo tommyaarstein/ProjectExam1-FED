@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&family=Archivo:wght@400;500;600;700&display=swap");
+
+@import url("./_variables.css");
+@import url("./_base.css");
+@import url("./_header.css");
+@import url("./_home.css");
+@import url("./_auth.css");
+@import url("./_product.css");
+@import url("./_footer.css");

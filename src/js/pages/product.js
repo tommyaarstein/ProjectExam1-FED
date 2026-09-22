@@ -157,6 +157,12 @@ function renderProduct(product) {
     const numberOfReviews = reviews.length;
     const reviewText = numberOfReviews === 1 ? "review" : "reviews";
 
+    const accessToken = localStorage.getItem("accessToken");
+
+    const purchaseAction = accessToken
+      ? `<button id="add-to-cart-button" class="button product-page__purchase-button" type="button">Add to cart</button>`
+      : `<a class="button product-page__purchase-button" href="../account/login.html">Log in to purchase</a>`;
+
     productDetails.innerHTML = `
       <div class="product-page__toolbar">
         <a class="product-page__back-link" href="../index.html"><img src="../assets/icons/24px/arrow-right.png" alt="" width="24" height="24">Back to shop</a>
@@ -196,7 +202,7 @@ function renderProduct(product) {
             <del id="product-original-price" class="product-page__original-price"></del>
           </div>
 
-          <a class="button product-page__purchase-button" href="../account/login.html">Log in to purchase</a>
+          ${purchaseAction}
         </div>
       </div>
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Log in to your TING account to purchase products."/>
+    <meta name="referrer" content="strict-origin-when-cross-origin"/>
+
+    <title>Log in | TING</title>
+
+    <link rel="stylesheet" href="../src/css/styles.css"/>
+    <script type="module" src="../src/js/pages/login.js"></script>
+  </head>
+
+  <body data-page="login">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header id="site-header" class="site-header"></header>
+
+    <main id="main-content" class="auth-page">
+      <a class="auth-page__back-link" href="../index.html"><img src="../assets/icons/24px/arrow-right.png" alt="" width="24" height="24">Back to shop</a>
+
+      <section class="auth-page__content" aria-labelledby="login-heading">
+        <h1 id="login-heading">Welcome back</h1>
+        <p class="auth-page__introduction">Log in to add products to your cart and continue shopping</p>
+
+        <nav class="auth-tabs" aria-label="Account options">
+          <a href="./login.html" aria-current="page">Log in</a>
+          <a href="./register.html">Register</a>
+        </nav>
+
+        <form id="login-form" class="auth-form" method="post">
+          <div class="auth-form__field">
+            <label for="login-email">Email</label>
+            <input id="login-email" name="email" type="email" placeholder="name@stud.noroff.no" autocomplete="email" pattern="[A-Za-z0-9._%+-]+@stud\.noroff\.no" aria-describedby="login-email-help" required>
+            <small id="login-email-help">Use your Noroff email</small>
+          </div>
+
+          <div class="auth-form__field">
+            <label for="login-password">Password</label>
+            <div class="auth-form__password-wrapper">
+              <input id="login-password" name="password" type="password" placeholder="Enter password" autocomplete="current-password" minlength="8" aria-describedby="login-password-help" required>
+              <button class="auth-form__password-toggle" type="button" data-password-toggle="login-password" data-show-icon="../assets/icons/24px/eye.png" data-hide-icon="../assets/icons/24px/eye-off.png" aria-label="Show password" aria-controls="login-password" aria-pressed="false">
+                <img src="../assets/icons/24px/eye.png" alt="" width="24" height="24">
+              </button>
+            </div>
+            <small id="login-password-help">Minimum 8 characters</small>
+          </div>
+
+          <button class="button auth-form__submit" type="submit">Log in</button>
+
+          <p id="login-status" class="auth-form__status" aria-live="polite" aria-atomic="true" hidden></p>
+        </form>
+      </section>
+    </main>
+
+    <footer id="site-footer" class="site-footer"></footer>
+  </body>
+</html>
