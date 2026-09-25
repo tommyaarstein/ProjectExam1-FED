@@ -1,17 +1,17 @@
+import { getCartItemCount } from "../storage/cart.js";
+
 export function renderHeader(pathPrefix = "./") {
-    const header = document.querySelector("#site-header");
+  const header = document.querySelector("#site-header");
 
-    if (!header) {
-        return;
-    }
+  if (!header) {
+    return;
+  }
 
-    const currentPage = document.body.dataset.page;
+  const currentPage = document.body.dataset.page;
 
-    const homeActive = currentPage === "home"
-        ? 'aria-current="page"'
-        : "";
+  const homeActive = currentPage === "home" ? 'aria-current="page"' : "";
 
-    header.innerHTML = `
+  header.innerHTML = `
         <div class="site-header__inner">
         <button class="site-header__menu-button" id="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-navigation">
             <img src="${pathPrefix}assets/icons/24px/menu.png" alt="" width="24" height="24">
@@ -29,8 +29,9 @@ export function renderHeader(pathPrefix = "./") {
             <img src="${pathPrefix}assets/icons/24px/account.png" alt="" width="24" height="24">
             </a>
 
-            <a class="site-header__icon-link" href="${pathPrefix}cart/index.html" aria-label="Shopping cart">
+            <a id="cart-link" class="site-header__icon-link" href="${pathPrefix}cart/index.html" aria-label="Shopping cart, empty">
             <img src="${pathPrefix}assets/icons/24px/shopping-bag.png" alt="" width="24" height="24">
+            <span id="cart-count" class="site-header__cart-count" aria-hidden="true" hidden></span>
             </a>
         </div>
         </div>
@@ -41,15 +42,39 @@ export function renderHeader(pathPrefix = "./") {
         </nav>
     `;
 
-    const menuButton = header.querySelector("#menu-button");
-    const mobileNavigation = header.querySelector("#mobile-navigation");
+  const menuButton = header.querySelector("#menu-button");
+  const mobileNavigation = header.querySelector("#mobile-navigation");
 
-    menuButton.addEventListener("click", function () {
-        const menuIsOpen = menuButton.getAttribute("aria-expanded") === "true";
+    const cartLink = header.querySelector("#cart-link");
+    const cartCount = header.querySelector("#cart-count");
 
-        menuButton.setAttribute("aria-expanded", String(!menuIsOpen));
-        menuButton.setAttribute("aria-label", menuIsOpen ? "Open menu" : "Close menu");
+    function updateCartIndicator() {
+    const itemCount = getCartItemCount();
+    const itemText = itemCount === 1 ? "item" : "items";
 
-        mobileNavigation.hidden = menuIsOpen;
-    });
+    cartCount.textContent = itemCount;
+    cartCount.hidden = itemCount === 0;
+
+    cartLink.setAttribute(
+        "aria-label",
+        itemCount === 0
+        ? "Shopping cart, empty"
+        : `Shopping cart, ${itemCount} ${itemText}`,
+    );
+    }
+
+    updateCartIndicator();
+    window.addEventListener("cartUpdated", updateCartIndicator);
+
+  menuButton.addEventListener("click", function () {
+    const menuIsOpen = menuButton.getAttribute("aria-expanded") === "true";
+
+    menuButton.setAttribute("aria-expanded", String(!menuIsOpen));
+    menuButton.setAttribute(
+      "aria-label",
+      menuIsOpen ? "Open menu" : "Close menu",
+    );
+
+    mobileNavigation.hidden = menuIsOpen;
+  });
 }

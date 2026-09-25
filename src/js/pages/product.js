@@ -1,6 +1,7 @@
 import { renderHeader } from "../components/header.js";
 import { renderFooter } from "../components/footer.js";
 import { getProduct } from "../api/products.js";
+import { addToCart } from "../storage/cart.js";
 
 renderHeader("../");
 renderFooter("../");
@@ -203,6 +204,7 @@ function renderProduct(product) {
           </div>
 
           ${purchaseAction}
+          <p id="cart-feedback" class="visually-hidden" aria-live="polite"></p>
         </div>
       </div>
 
@@ -229,6 +231,8 @@ function renderProduct(product) {
 
   const shareButton = document.querySelector(".product-page__share-button");
   const shareFeedback = document.querySelector("#share-feedback");
+  const addToCartButton = document.querySelector("#add-to-cart-button");
+  const cartFeedback = document.querySelector("#cart-feedback");
 
   productImage.src = product.image.url;
   productImage.alt = product.image.alt || product.title;
@@ -254,6 +258,24 @@ function renderProduct(product) {
   shareButton.addEventListener("click", function () {
     shareProduct(product, shareFeedback);
   });
+
+  if (addToCartButton) {
+    let feedbackTimeout;
+
+    addToCartButton.addEventListener("click", function () {
+      const cart = addToCart(product.id);
+      const cartItem = cart.find((item) => item.id === product.id);
+
+      addToCartButton.textContent = "Added to cart";
+      cartFeedback.textContent = `${product.title} added to cart. Quantity: ${cartItem.quantity}.`;
+
+      window.clearTimeout(feedbackTimeout);
+
+      feedbackTimeout = window.setTimeout(function () {
+        addToCartButton.textContent = "Add to cart";
+      }, 1500);
+    });
+  }
 
   document.title = `${product.title} | TING`;
 

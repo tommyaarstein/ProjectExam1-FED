@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review the products in your TING shopping cart and proceed to checkout.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <title>Shopping cart | TING</title>
+
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <script type="module" src="../src/js/pages/cart.js"></script>
+  </head>
+
+  <body data-page="cart">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header id="site-header" class="site-header"></header>
+
+    <main id="main-content" class="cart-page">
+      <div class="cart-page__inner">
+        <a class="cart-page__back-link" href="../index.html">
+          <img src="../assets/icons/24px/arrow-right.png" alt="" width="24" height="24">
+          <span class="cart-page__back-mobile">Home</span>
+          <span class="cart-page__back-desktop">Continue shopping</span>
+        </a>
+
+        <section class="cart-page__content" aria-labelledby="cart-heading">
+          <div class="cart-page__heading">
+            <h1 id="cart-heading">Your cart<span id="cart-heading-count" class="cart-page__heading-count"></span></h1>
+            <button id="clear-cart-button" class="cart-page__clear-button" type="button" hidden>Clear cart</button>
+          </div>
+
+          <p id="cart-status" class="cart-page__status" aria-live="polite" aria-atomic="true">Loading your cart...</p>
+
+          <div id="cart-layout" class="cart-page__layout" hidden>
+            <div class="cart-page__items-column">
+              <ul id="cart-list" class="cart-page__items" aria-label="Products in your cart"></ul>
+              <p id="cart-feedback" class="cart-page__feedback" aria-live="polite" aria-atomic="true" hidden></p>
+            </div>
+
+            <aside class="cart-summary" aria-labelledby="cart-summary-heading">
+              <h2 id="cart-summary-heading">Order summary</h2>
+
+              <dl class="cart-summary__details">
+                <div class="cart-summary__row">
+                  <dt>Products</dt>
+                  <dd id="cart-products-total"></dd>
+                </div>
+
+                <div id="cart-savings-row" class="cart-summary__row">
+                  <dt>You save</dt>
+                  <dd id="cart-savings"></dd>
+                </div>
+
+                <div class="cart-summary__row cart-summary__total">
+                  <dt>Total</dt>
+                  <dd id="cart-total"></dd>
+                </div>
+              </dl>
+
+              <a class="button cart-summary__checkout-button" href="../checkout/index.html">Proceed to checkout</a>
+            </aside>
+          </div>
+
+          <a class="cart-page__continue-link" href="../index.html">Continue shopping</a>
+        </section>
+      </div>
+    </main>
+
+    <footer id="site-footer" class="site-footer"></footer>
+  </body>
+</html>
