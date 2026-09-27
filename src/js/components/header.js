@@ -10,6 +10,7 @@ export function renderHeader(pathPrefix = "./") {
   const currentPage = document.body.dataset.page;
 
   const homeActive = currentPage === "home" ? 'aria-current="page"' : "";
+  const aboutActive = currentPage === "about" ? 'aria-current="page"' : "";
 
   header.innerHTML = `
         <div class="site-header__inner">
@@ -21,7 +22,7 @@ export function renderHeader(pathPrefix = "./") {
 
         <nav class="site-header__desktop-nav" aria-label="Main navigation">
             <a href="${pathPrefix}index.html" ${homeActive}>Home</a>
-            <a href="#about-ting">About TING</a>
+            <a href="${pathPrefix}about/index.html" ${aboutActive}>About TING</a>
         </nav>
 
         <div class="site-header__actions">
@@ -38,7 +39,7 @@ export function renderHeader(pathPrefix = "./") {
 
         <nav class="site-header__mobile-nav" id="mobile-navigation" aria-label="Mobile navigation" hidden>
         <a href="${pathPrefix}index.html" ${homeActive}>Home</a>
-        <a href="#about-ting">About TING</a>
+        <a href="${pathPrefix}about/index.html" ${aboutActive}>About TING</a>
         </nav>
     `;
 

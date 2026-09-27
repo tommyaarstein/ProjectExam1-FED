@@ -31,6 +31,17 @@
     border-radius: 15px;
     background-color: var(--color-header);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    animation: carousel-fade 250ms ease-out;
+}
+
+@keyframes carousel-fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .featured-card__information {

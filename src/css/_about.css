@@ -1,0 +1,203 @@
+/* About page */
+
+.about-page {
+    display: flex;
+}
+
+.about-page__inner {
+    width: calc(100% - 28px);
+    margin: 0 auto;
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-page__content {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 34px 0;
+}
+
+.about-page__back-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+}
+
+.about-page__back-link img {
+    width: 19px;
+    height: 19px;
+    transform: rotate(180deg);
+}
+
+.about-page__back-desktop {
+    display: none;
+}
+
+.about-page__hero {
+    margin-top: 0;
+}
+
+.about-page__heading {
+    margin-bottom: 0;
+    color: var(--color-black);
+    font-weight: 500;
+}
+
+.about-page__heading-main,
+.about-page__heading-accent {
+    display: block;
+}
+
+.about-page__heading-main {
+    width: 190px;
+    font-family: var(--font-body);
+    font-size: 40px;
+    line-height: 38px;
+    letter-spacing: -1px;
+}
+
+.about-page__heading-accent {
+    width: 180px;
+    margin-left: 98px;
+    color: var(--color-primary);
+    font-family: var(--font-logo);
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 44px;
+    letter-spacing: 0;
+}
+
+.about-page__introduction {
+    margin-top: 39px;
+    padding-top: 38px;
+    border-top: 1px solid var(--color-black);
+}
+
+.about-page__introduction p {
+    margin-bottom: 0;
+    color: var(--color-soft-line);
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.about-page__statement {
+    margin: 31px 7px 0 3px;
+    padding-left: 25px;
+    border-left: 5px solid var(--color-primary);
+}
+
+.about-page__statement p {
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 23px;
+}
+
+@media (min-width: 768px) {
+    .about-page__inner {
+        width: calc(100% - 64px);
+        max-width: 700px;
+        padding-top: 32px;
+    }
+
+    .about-page__heading-main {
+        width: auto;
+        font-size: 52px;
+        line-height: 52px;
+    }
+
+    .about-page__heading-accent {
+        width: auto;
+        margin-left: 100px;
+        font-size: 62px;
+        line-height: 58px;
+    }
+
+    .about-page__introduction {
+        margin-top: 48px;
+    }
+
+    .about-page__introduction p {
+        font-size: 17px;
+        line-height: 26px;
+    }
+
+    .about-page__statement {
+        max-width: 520px;
+        margin-top: 45px;
+        margin-left: 100px;
+    }
+
+    .about-page__statement p {
+        font-size: 18px;
+        line-height: 27px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .about-page__inner {
+        width: calc(100% - 64px);
+        max-width: 1200px;
+        padding-top: 40px;
+    }
+
+    .about-page__back-link {
+        gap: 16px;
+        font-size: 25px;
+    }
+
+    .about-page__back-link img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .about-page__back-mobile {
+        display: none;
+    }
+
+    .about-page__back-desktop {
+        display: inline;
+    }
+
+    .about-page__hero {
+        display: grid;
+        grid-template-columns: minmax(0, 685px) minmax(0, 373px);
+        gap: 80px;
+        align-items: start;
+    }
+
+    .about-page__heading-main {
+        font-size: 64px;
+        line-height: 64px;
+        letter-spacing: -2px;
+    }
+
+    .about-page__heading-accent {
+        margin-left: 129px;
+        font-size: 76px;
+        line-height: 68px;
+    }
+
+    .about-page__introduction {
+        margin-top: 0;
+        padding-top: 14px;
+    }
+
+    .about-page__introduction p {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .about-page__statement {
+        width: 477px;
+        max-width: none;
+        margin: 145px 0 0 377px;
+        padding-left: 29px;
+    }
+
+    .about-page__statement p {
+        font-size: 20px;
+        line-height: 23px;
+    }
+}
